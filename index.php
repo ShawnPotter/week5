@@ -1,6 +1,9 @@
 <?php
   //The Controller
 
+  //start a session
+  session_start();
+
   //turn on error reporting
   ini_set('display_errors', 1);
   error_reporting(E_ALL);
@@ -22,6 +25,11 @@
     $f3->set('color', 'purple');
     $f3->set('radius', 10);
     $f3->set('fruits',getFruit());
+    $f3->set('salaries',getSalary());
+    $f3->set('desserts',getDesserts());
+    $f3->set('num',10);
+    $f3->set('preferredCustomer',true);
+    //$f3->set('myPet', new Pet('Fido')); //example of instanitating an object
 
     $view = new Template();
     echo $view->render('views/info.html');

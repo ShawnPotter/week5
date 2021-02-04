@@ -16,23 +16,28 @@
 </head>
 <body>
 <div class="container" id="main">
+
   <div class="mt-5">
     <h1>{{ @title }}</h1>
     <p class="pl-3">{{ @username }} is logged in with {{ @password }}</p>
   </div>
+
   <div class="mt-5">
     <h3>Temperature</h3>
     <p class="pl-3">Fahrenheit temp: {{ @ftemp }}</p>
     <p class="pl-3">Celsius temp: {{ round((@ftemp-32) * (5.0/9.0),2) }}</p>
   </div>
+
   <div class="mt-5">
     <h3>Color</h3>
     <p class="pl-3">I like {{@color}}</p>
   </div>
+
   <div class="mt-5">
     <h3>Circumfrence</h3>
     <p class="pl-3">Circumfrence of a circle with a radius of {{@radius}} is: {{(2 * 3.14 * @radius)}}</p>
   </div>
+
   <div class="mt-5">
     <h3>Fruit</h3>
     <ul>
@@ -41,8 +46,57 @@
       </repeat>
     </ul>
   </div>
+
+  <div class="mt-5">
+    <p>
+      <repeat group="{{ @salaries }}" key="{{ @name }}" value="{{ @salary }}">
+        {{ @name }} earns {{ @salary }} <br>
+        <check if="{{@salary > 250000}}">
+          <p>Wow, you're rich!</p>
+        </check>
+      </repeat>
+    </p>
+  </div>
+
+  <div class="mt-5">
+    <form>
+      <fieldset>
+        <legend>Dessert Options</legend>
+        <repeat group="{{ @desserts }}" key="{{ @value }}" value="{{ @description }}">
+          <label>
+            <input type="checkbox" value="{{ @value }}" name="{{ @value }}">
+            {{ @description }}
+          </label><br>
+        </repeat>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="mt-5">
+    <h3>Conditionals</h3>
+    <check if="{{ @num == 5 }}">
+      <true>
+        <p>YES</p>
+      </true>
+      <false>
+        <p>NO</p>
+      </false>
+    </check>
+    <check if="{{ @preferredCustomer }}">
+      <p>You get a discount</p>
+    </check>
+  </div>
+
+  <div class="mt-5">
+    <h3>Session information</h3>
+    <p>{{ @SESSION['id'] }}</p>
+  </div>
+
 </div>
 
+<div class="mt-5">
+  <h3></h3>
+</div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
