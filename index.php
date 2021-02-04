@@ -5,7 +5,7 @@
   ini_set('display_errors', 1);
   error_reporting(E_ALL);
 
-  //require autoload file
+  //require nessecary files
   require_once("vendor/autoload.php");
   require_once("model/data-layer.php");
 
@@ -21,7 +21,7 @@
     $f3->set('ftemp', 67);
     $f3->set('color', 'purple');
     $f3->set('radius', 10);
-    $f3->set('fruits',array("apple","banana","orange"));
+    $f3->set('fruits',getFruit());
 
     $view = new Template();
     echo $view->render('views/info.html');
